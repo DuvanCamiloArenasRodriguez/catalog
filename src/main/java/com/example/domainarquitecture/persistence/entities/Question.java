@@ -12,13 +12,13 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "chapter_id")
+//    @Column(name = "chapter_id")
     @ManyToOne
-    private Chapter chapterId;
+    private Chapter chapter;
 
-    @Column(name = "survey_id")
+//    @Column(name = "survey_id")
     @ManyToOne
-    private Survey surveyId;
+    private Survey survey;
 
     @Column(name = "question_number")
     private String questionNumber;
@@ -33,24 +33,24 @@ public class Question {
     private String commentQuestion;
 
 //    Revisarrrrr
-    @Column(name = "parent_question_id")
-    @OneToMany(mappedBy = "questions")
-    private List<Question>  parentQuestionId;
+//    @Column(name = "parent_question_id")
+//    @OneToMany(mappedBy = "questions")
+//    private List<Question> parentQuestion;
 //
 
 
     public Question() {
     }
 
-    public Question(Long id, Chapter chapterId, Survey surveyId, String questionNumber, String questionText, String responseType, String commentQuestion, List<Question> parentQuestionId) {
+    public Question(Long id, Chapter chapter, Survey survey, String questionNumber, String questionText, String responseType, String commentQuestion, List<Question> parentQuestion) {
         this.id = id;
-        this.chapterId = chapterId;
-        this.surveyId = surveyId;
+        this.chapter = chapter;
+        this.survey = survey;
         this.questionNumber = questionNumber;
         this.questionText = questionText;
         this.responseType = responseType;
         this.commentQuestion = commentQuestion;
-        this.parentQuestionId = parentQuestionId;
+//        this.parentQuestion = parentQuestion;
     }
 
     public Long getId() {
@@ -61,20 +61,20 @@ public class Question {
         this.id = id;
     }
 
-    public Chapter getChapterId() {
-        return chapterId;
+    public Chapter getChapter() {
+        return chapter;
     }
 
-    public void setChapterId(Chapter chapterId) {
-        this.chapterId = chapterId;
+    public void setChapter(Chapter chapterId) {
+        this.chapter = chapterId;
     }
 
-    public Survey getSurveyId() {
-        return surveyId;
+    public Survey getSurvey() {
+        return survey;
     }
 
-    public void setSurveyId(Survey surveyId) {
-        this.surveyId = surveyId;
+    public void setSurvey(Survey surveyId) {
+        this.survey = surveyId;
     }
 
     public String getQuestionNumber() {
@@ -109,25 +109,25 @@ public class Question {
         this.commentQuestion = commentQuestion;
     }
 
-    public List<Question> getParentQuestionId() {
-        return parentQuestionId;
-    }
+//    public List<Question> getParentQuestion() {
+//        return parentQuestion;
+//    }
 
-    public void setParentQuestionId(List<Question> parentQuestionId) {
-        this.parentQuestionId = parentQuestionId;
-    }
+//    public void setParentQuestion(List<Question> parentQuestionId) {
+//        this.parentQuestion = parentQuestionId;
+//    }
 
     @Override
     public String toString() {
         return "Question{" +
                 "id=" + id +
-                ", chapterId=" + chapterId +
-                ", surveyId=" + surveyId +
+                ", chapterId=" + chapter +
+                ", surveyId=" + survey +
                 ", questionNumber='" + questionNumber + '\'' +
                 ", questionText='" + questionText + '\'' +
                 ", responseType='" + responseType + '\'' +
                 ", commentQuestion='" + commentQuestion + '\'' +
-                ", parentQuestionId=" + parentQuestionId +
+//                ", parentQuestionId=" + parentQuestion +
                 '}';
     }
 }

@@ -2,7 +2,6 @@ package com.example.domainarquitecture.persistence.entities;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 
@@ -20,9 +19,9 @@ public class Response {
     @Column(name = "response_date")
     private Date responseDate;
 
-    @Column(name = "survey_id")
+//    @Column(name = "survey_id")
     @ManyToOne
-    private Survey surveyId;
+    private Survey survey;
 
     @Column(name = "name_respondent")
     private String nameRespondent;
@@ -30,11 +29,11 @@ public class Response {
     public Response() {
     }
 
-    public Response(Long id, LocalTime responseTime, Date responseDate, Survey surveyId, String nameRespondent) {
+    public Response(Long id, LocalTime responseTime, Date responseDate, Survey survey, String nameRespondent) {
         this.id = id;
         this.responseTime = responseTime;
         this.responseDate = responseDate;
-        this.surveyId = surveyId;
+        this.survey = survey;
         this.nameRespondent = nameRespondent;
     }
 
@@ -62,12 +61,12 @@ public class Response {
         this.responseDate = responseDate;
     }
 
-    public Survey getSurveyId() {
-        return surveyId;
+    public Survey getSurvey() {
+        return survey;
     }
 
-    public void setSurveyId(Survey surveyId) {
-        this.surveyId = surveyId;
+    public void setSurvey(Survey surveyId) {
+        this.survey = surveyId;
     }
 
     public String getNameRespondent() {
@@ -84,7 +83,7 @@ public class Response {
                 "id=" + id +
                 ", responseTime=" + responseTime +
                 ", responseDate=" + responseDate +
-                ", surveyId=" + surveyId +
+                ", surveyId=" + survey +
                 ", nameRespondent='" + nameRespondent + '\'' +
                 '}';
     }

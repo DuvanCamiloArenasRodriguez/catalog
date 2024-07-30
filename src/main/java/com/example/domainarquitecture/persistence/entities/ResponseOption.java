@@ -13,9 +13,9 @@ public class ResponseOption {
     @Column(name = "option_value")
     private String optionValue;
 
-    @Column(name = "question_id")
+//    @Column(name = "question_id")
     @ManyToOne
-    private Question questionId;
+    private Question question;
 
     @Column(name = "comment_response")
     private String commentResponse;
@@ -29,10 +29,10 @@ public class ResponseOption {
     public ResponseOption() {
     }
 
-    public ResponseOption(Long id, String optionValue, Question questionId, String commentResponse, String optionText, String questionParent) {
+    public ResponseOption(Long id, String optionValue, Question question, String commentResponse, String optionText, String questionParent) {
         this.id = id;
         this.optionValue = optionValue;
-        this.questionId = questionId;
+        this.question = question;
         this.commentResponse = commentResponse;
         this.optionText = optionText;
         this.questionParent = questionParent;
@@ -54,12 +54,12 @@ public class ResponseOption {
         this.optionValue = optionValue;
     }
 
-    public Question getQuestionId() {
-        return questionId;
+    public Question getQuestion() {
+        return question;
     }
 
-    public void setQuestionId(Question questionId) {
-        this.questionId = questionId;
+    public void setQuestion(Question questionId) {
+        this.question = questionId;
     }
 
     public String getCommentResponse() {
@@ -91,7 +91,7 @@ public class ResponseOption {
         return "ResponseOption{" +
                 "id=" + id +
                 ", optionValue='" + optionValue + '\'' +
-                ", questionId=" + questionId +
+                ", questionId=" + question +
                 ", commentResponse='" + commentResponse + '\'' +
                 ", optionText='" + optionText + '\'' +
                 ", questionParent='" + questionParent + '\'' +

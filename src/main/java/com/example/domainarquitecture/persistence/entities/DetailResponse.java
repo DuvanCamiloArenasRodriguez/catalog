@@ -1,26 +1,25 @@
 package com.example.domainarquitecture.persistence.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "detail_responses")
 public class DetailResponse {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "response_option")
     private Long responseOption;
 
-    @Column(name = "question_id")
+//    @Column(name = "question_id")
     @OneToOne
-    private Question questionId;
+    private Question question;
 
-    @Column(name = "response_id")
+//    @Column(name = "response_id")
     @OneToOne
-    private Response responseId;
+    private Response response;
 
     @Column(name = "response_text")
     private String responseText;
@@ -28,11 +27,11 @@ public class DetailResponse {
     public DetailResponse() {
     }
 
-    public DetailResponse(Long id, Long responseOption, Question questionId, Response responseId, String responseText) {
+    public DetailResponse(Long id, Long responseOption, Question question, Response response, String responseText) {
         this.id = id;
         this.responseOption = responseOption;
-        this.questionId = questionId;
-        this.responseId = responseId;
+        this.question = question;
+        this.response = response;
         this.responseText = responseText;
     }
 
@@ -52,20 +51,20 @@ public class DetailResponse {
         this.responseOption = responseOption;
     }
 
-    public Question getQuestionId() {
-        return questionId;
+    public Question getQuestion() {
+        return question;
     }
 
-    public void setQuestionId(Question questionId) {
-        this.questionId = questionId;
+    public void setQuestion(Question questionId) {
+        this.question = questionId;
     }
 
-    public Response getResponseId() {
-        return responseId;
+    public Response getResponse() {
+        return response;
     }
 
-    public void setResponseId(Response responseId) {
-        this.responseId = responseId;
+    public void setResponse(Response responseId) {
+        this.response = responseId;
     }
 
     public String getResponseText() {
@@ -81,8 +80,8 @@ public class DetailResponse {
         return "DetailResponse{" +
                 "id=" + id +
                 ", responseOption=" + responseOption +
-                ", questionId=" + questionId +
-                ", responseId=" + responseId +
+                ", questionId=" + question +
+                ", responseId=" + response +
                 ", responseText='" + responseText + '\'' +
                 '}';
     }

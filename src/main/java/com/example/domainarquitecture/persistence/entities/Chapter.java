@@ -10,9 +10,9 @@ public class Chapter {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "survey_id")
+//    @Column(name = "survey_id")
     @ManyToOne
-    private Survey surveyId;
+    private Survey survey;
 
     @Column(name = "chapter_number")
     private String chapterNumber;
@@ -23,9 +23,9 @@ public class Chapter {
     public Chapter() {
     }
 
-    public Chapter(Long id, Survey surveyId, String chapterNumber, String chapterTitle) {
+    public Chapter(Long id, Survey survey, String chapterNumber, String chapterTitle) {
         this.id = id;
-        this.surveyId = surveyId;
+        this.survey = survey;
         this.chapterNumber = chapterNumber;
         this.chapterTitle = chapterTitle;
     }
@@ -38,12 +38,12 @@ public class Chapter {
         this.id = id;
     }
 
-    public Survey getSurveyId() {
-        return surveyId;
+    public Survey getSurvey() {
+        return survey;
     }
 
-    public void setSurveyId(Survey surveyId) {
-        this.surveyId = surveyId;
+    public void setSurvey(Survey surveyId) {
+        this.survey = surveyId;
     }
 
     public String getChapterNumber() {
@@ -66,7 +66,7 @@ public class Chapter {
     public String toString() {
         return "Chapter{" +
                 "id=" + id +
-                ", surveyId=" + surveyId +
+                ", surveyId=" + survey +
                 ", chapterNumber='" + chapterNumber + '\'' +
                 ", chapterTitle='" + chapterTitle + '\'' +
                 '}';
